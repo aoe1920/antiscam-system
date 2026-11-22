@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Tài liệu dự án & Hướng dẫn kỹ thuật
+    url: https://github.com/
+    about: Vui lòng tham khảo thư mục docs/ trước khi mở Issue.

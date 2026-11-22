@@ -1,0 +1,20 @@
+# GitHub CODEOWNERS - Tự động chỉ định Reviewer theo phân công chuyên môn Sprint
+
+# DevOps / QA phụ trách kiểm soát toàn dự án, Docker và CI/CD
+*                   @24120425
+
+# Backend & Quản trị API, Database Schema
+/backend/           @24120149
+
+# Ứng dụng Di động Android
+/mobile/            @24120334
+
+# Giao diện Web Dashboard
+/web/               @24120397
+
+# Cấu hình CI/CD và Docker
+/.github/           @24120425
+/docker-compose.yml @24120425
+
+# Tài liệu học thuật và đặc tả hệ thống
+/docs/              @24120149 @24120425

@@ -4,6 +4,8 @@
 .env.*.local
 *.pem
 *.key
+*.jks
+*.keystore
 google-services.json
 
 # Python
@@ -22,11 +24,13 @@ dist/
 .pytest_cache/
 .coverage
 htmlcov/
+.mypy_cache/
+.ruff_cache/
 
 # Node
-web/node_modules/
-web/.next/
-web/out/
+node_modules/
+.next/
+out/
 web/build/
 *.log
 
@@ -44,11 +48,16 @@ mobile/.cxx/
 # Docker data
 data/postgres/
 data/neo4j/
+data/redis/
 neo4j/data/
 neo4j/logs/
 
 # OS and Editor
 .DS_Store
 Thumbs.db
+.idea/
 .vscode/
 !.vscode/settings.json
+
+# Tooling & Knowledge Graph
+graphify-out/
