@@ -1,6 +1,6 @@
 # ỨNG DỤNG DI ĐỘNG BẢO VỆ GIA ĐÌNH (ANDROID APP)
 
-Ứng dụng di động chuyên biệt trên hệ điều hành Android (do **Module D - Sỉn Thăng Quyền** phụ trách).
+Ứng dụng di động chuyên biệt trên hệ điều hành Android.
 
 ---
 

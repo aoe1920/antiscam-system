@@ -1,6 +1,6 @@
 # MÁY CHỦ ỨNG DỤNG BACKEND (FASTAPI)
 
-Thành phần xử lý nghiệp vụ trung tâm cho Hệ thống AntiScam (do **Module A - Đặng Quang Tiến** và **Module B - Hoàng Khang** phụ trách).
+Thành phần xử lý nghiệp vụ trung tâm cho Hệ thống AntiScam.
 
 ---
 

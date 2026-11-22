@@ -1,6 +1,6 @@
 # GIAO DIỆN WEB QUẢN TRỊ & TRA CỨU (NEXT.JS)
 
-Thành phần giao diện người dùng trên nền tảng Web của Hệ thống AntiScam (do **Module C - Trương Bảo Nguyên** phụ trách).
+Thành phần giao diện người dùng trên nền tảng Web của Hệ thống AntiScam.
 
 ---
 

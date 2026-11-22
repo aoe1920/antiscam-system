@@ -180,7 +180,7 @@
       <mxGeometry width="320" height="22" as="geometry"><mxRectangle width="320" height="22" as="alternateBounds"/></mxGeometry>
     </mxCell>
     <mxCell id="e_sos_alerts" value="sos_alerts" style="shape=table;startSize=26;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
-      <mxGeometry x="80" y="920" width="320" height="246" as="geometry"/>
+      <mxGeometry x="80" y="920" width="320" height="268" as="geometry"/>
     </mxCell>
     <mxCell id="r_sos_alerts_id" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;strokeColor=#6c8ebf;strokeWidth=1.5;" vertex="1" parent="e_sos_alerts">
       <mxGeometry y="26" width="320" height="22" as="geometry"/>
@@ -236,8 +236,14 @@
     <mxCell id="c_sos_alerts_status" value="status" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=8;fontStyle=0;overflow=hidden;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="r_sos_alerts_status">
       <mxGeometry width="320" height="22" as="geometry"><mxRectangle width="320" height="22" as="alternateBounds"/></mxGeometry>
     </mxCell>
-    <mxCell id="r_sos_alerts_created_at" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0" vertex="1" parent="e_sos_alerts">
+    <mxCell id="r_sos_alerts_resolved_at" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0" vertex="1" parent="e_sos_alerts">
       <mxGeometry y="224" width="320" height="22" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_sos_alerts_resolved_at" value="resolved_at" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=8;fontStyle=0;overflow=hidden;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="r_sos_alerts_resolved_at">
+      <mxGeometry width="320" height="22" as="geometry"><mxRectangle width="320" height="22" as="alternateBounds"/></mxGeometry>
+    </mxCell>
+    <mxCell id="r_sos_alerts_created_at" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0" vertex="1" parent="e_sos_alerts">
+      <mxGeometry y="246" width="320" height="22" as="geometry"/>
     </mxCell>
     <mxCell id="c_sos_alerts_created_at" value="created_at" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=8;fontStyle=0;overflow=hidden;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="r_sos_alerts_created_at">
       <mxGeometry width="320" height="22" as="geometry"><mxRectangle width="320" height="22" as="alternateBounds"/></mxGeometry>
@@ -1170,6 +1176,18 @@
           <mxPoint x="440" y="150"/>
           <mxPoint x="440" y="1240"/>
           <mxPoint x="580" y="1240"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="rel_users_disputes_app" value="submits_dispute" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#333333;strokeWidth=1.4;fontSize=11;fontStyle=2;labelBackgroundColor=#ffffff;fontColor=#000000;" edge="1" parent="1" source="e_users" target="e_disputes">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="400" y="160"/>
+          <mxPoint x="490" y="160"/>
+          <mxPoint x="490" y="20"/>
+          <mxPoint x="1570" y="20"/>
+          <mxPoint x="1570" y="420"/>
+          <mxPoint x="1620" y="420"/>
         </Array>
       </mxGeometry>
     </mxCell>

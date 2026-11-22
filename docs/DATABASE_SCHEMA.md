@@ -251,14 +251,20 @@ CREATE TABLE system_configs (
 -- ========================================================
 
 CREATE INDEX idx_users_phone ON users(phone);
+CREATE INDEX idx_user_devices_user ON user_devices(user_id);
 CREATE INDEX idx_user_devices_token ON user_devices(fcm_token);
+CREATE INDEX idx_family_guardians_user ON family_guardians(user_id);
+CREATE INDEX idx_family_guardians_guardian ON family_guardians(guardian_id);
+CREATE INDEX idx_sos_alerts_user ON sos_alerts(user_id);
 CREATE INDEX idx_bank_accounts_num ON bank_accounts(account_number);
 CREATE INDEX idx_phone_numbers_num ON phone_numbers(phone_number);
 CREATE INDEX idx_malicious_domains_domain ON malicious_domains(domain);
 CREATE INDEX idx_scam_reports_entity ON scam_reports(entity_type, entity_value);
 CREATE INDEX idx_scam_reports_status ON scam_reports(status);
+CREATE INDEX idx_evidence_attachments_report ON evidence_attachments(report_id);
 CREATE INDEX idx_image_hashes_phash ON image_hashes(phash);
 CREATE INDEX idx_lookup_history_val ON lookup_history(entity_value);
+CREATE INDEX idx_disputes_report ON disputes(report_id);
 CREATE INDEX idx_audit_logs_actor ON audit_logs(actor_id);
 ```
 
