@@ -280,3 +280,78 @@ Tài liệu này xác lập hợp đồng dữ liệu giữa **Backend (Module A
 }
 ```
 
+
+---
+
+## 3. Sơ đồ tuần tự tương tác (Sequence Diagrams)
+
+### 3.1. Luồng Kiểm chứng Đa tầng (Fast-Path & Deep-Path)
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Client as Web / Android App
+    participant GW as FastAPI Router
+    participant SEC as Auth & RateLimit
+    participant Cache as Redis Cache
+    participant Neo as Neo4j Graph DB
+    participant AI as Vision & NLP Services
+    participant Score as Scoring Service
+
+    Client->>GW: POST /api/v1/verify/post (Bearer Token + Payload)
+    GW->>SEC: Verify JWT Token (HMAC-SHA256)
+    alt Token không hợp lệ
+        SEC-->>Client: 401 Unauthorized
+    else Token hợp lệ
+        SEC->>Cache: Kiểm tra Cache định danh (Entity Hash)
+        alt Cache Hit (< 10ms)
+            Cache-->>Client: Trả về kết quả đánh giá đã lưu
+        else Cache Miss -> Thực thi kiểm chứng
+            par Fast-Path: Đồ thị tri thức (< 100ms)
+                GW->>Neo: Cypher: Khám phá liên kết 2-hop & Burner SIM
+                Neo-->>GW: Trả về Subgraph rủi ro & Khoảng cách d
+            and Deep-Path: Phân tích đa phương thức
+                GW->>AI: Vision: Giải mã VietQR TLV + Băm ảnh pHash
+                GW->>AI: NLP: Phân tích thao túng tâm lý (Urgency / Impersonation)
+                AI-->>GW: Trả về điểm phạt S_i, S_s
+            end
+            GW->>Score: Tổng hợp điểm tín nhiệm (Công thức phạt What-If)
+            Score-->>GW: Điểm tín nhiệm (0-100) + Phân hạng rủi ro (CRITICAL/HIGH/SAFE)
+            GW->>Cache: Lưu kết quả vào Redis (TTL = 3600s)
+            GW-->>Client: 200 OK (credit_score, penalty_breakdown, what_if_analysis)
+        end
+    end
+```
+
+---
+
+## 4. Hướng dẫn Khởi chạy & Tích hợp Nhanh (Local Integration Runbook)
+
+Dành cho thành viên phát triển Web, Mobile và Backend kiểm thử tích hợp trên máy cục bộ:
+
+### Bước 1: Khởi động hệ thống cơ sở dữ liệu Docker
+```bash
+# Khởi chạy PostgreSQL (Port 5432), Neo4j (Port 7474, 7687) và Redis (Port 6379)
+docker compose up -d
+
+# Kiểm tra trạng thái các container đang chạy
+docker compose ps
+```
+
+### Bước 2: Nạp dữ liệu mẫu ban đầu (Seed Data)
+```bash
+# Nạp danh sách ngân hàng NAPAS, tài khoản scam và mạng lưới đồ thị mẫu
+python scripts/seed_data.py
+```
+
+### Bước 3: Chạy Backend FastAPI máy chủ phát triển
+```bash
+# Cài đặt thư viện môi trường
+pip install -r backend/requirements.txt
+
+# Khởi chạy máy chủ với Hot-Reload
+uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+* **Swagger UI kiểm thử trực tiếp:** `http://localhost:8000/docs`
+* **Healthcheck:** `http://localhost:8000/health`

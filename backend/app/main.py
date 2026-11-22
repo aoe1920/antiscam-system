@@ -3,6 +3,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.core.config import settings
 from backend.app.api.v1.endpoints.verification import router as verification_router
+from backend.app.api.v1.endpoints.auth import router as auth_router
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -28,6 +29,7 @@ async def add_process_time_header(request: Request, call_next):
     return response
 
 app.include_router(verification_router, prefix=settings.API_V1_STR)
+app.include_router(auth_router, prefix=f"{settings.API_V1_STR}/auth", tags=["Authentication"])
 
 @app.get("/health", tags=["Health"])
 async def health_check():
