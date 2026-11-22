@@ -17,8 +17,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  backend-test:
-    name: Backend Unit & Integration Tests
+  test-and-lint:
+    name: test-and-lint
     runs-on: ubuntu-latest
 
     steps:
